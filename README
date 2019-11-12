@@ -1,3 +1,18 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=21
+info.vim is a frontend for the info command. It requires vim 6.x and GNU info.
+adds new command `Info': without arguments it displays "directory" node, with
+single argument displays this file (eg `:Info libc'). with two arguments, first
+specifies file and second node to display (eg `:Info libc POSIX\ Threads' --
+note space escaping). within browser, press ,h key to see available key
+shortcuts.
 
-requires vim 6.x and GNU info. adds new command `Info': without arguments it displays "directory" node, with single argument displays this file (eg `:Info libc'). with two arguments, first specifies file and second node to display (eg `:Info libc POSIX\ Threads' -- note space escaping). within browser, press h key to see available key shortcuts.
+I already find it more confortable than the official info gui but this can be
+improved so this is my attempt.
+
+The original info navigator is here:
+
+    http://www.vim.org/scripts/script.php?script_id=21
+
+Its github mirror is here:
+
+    https://github.com/vim-scripts/info.vim
+
