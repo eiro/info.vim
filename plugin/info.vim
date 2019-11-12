@@ -150,29 +150,19 @@ fun! s:InfoBufferInit()
 	endif
     endif
 
-    " FIXME: <h> is move cursor left
-    noremap <buffer> h		:call <SID>Help()<cr>
-    noremap <buffer> <CR>	:call <SID>FollowLink()<cr>
-    noremap <buffer> <C-]>	:call <SID>FollowLink()<cr>
-    " FIXME: <l> is move cursor right
-"    noremap <buffer> l		:call <SID>LastNode()<cr>
-    noremap <buffer> ;		:call <SID>LastNode()<cr>
-    noremap <buffer> <C-T>	:call <SID>LastNode()<cr>
-    noremap <buffer> <C-S>	/
-    " FIXME: <n> is go to next match
-"    noremap <buffer> n		:call <SID>NextNode()<cr>
-    noremap <buffer> .		:call <SID>NextNode()<cr>
-    noremap <buffer> p		:call <SID>PrevNode()<cr>
-    noremap <buffer> >		:call <SID>NextNode()<cr>
-    noremap <buffer> <		:call <SID>PrevNode()<cr>
-    noremap <buffer> u		:call <SID>UpNode()<cr>
-    noremap <buffer> t		:call <SID>TopNode()<cr>
-    noremap <buffer> d		:call <SID>DirNode()<cr>
-    noremap <buffer> s		:call <SID>Search()<cr>
-    noremap <buffer> <TAB>	:call <SID>NextRef()<cr>
-    nnoremap <buffer> q		:q!<cr>
-    noremap <buffer> <Space>	<C-F>
-    noremap <buffer> <Backspace> <C-B>
+    " Quake alike mappings for azerty keyboards
+    " Todo: all of those should be commands to map out of this file
+    noremap <buffer> <CR>  :call <SID>FollowLink()<cr>
+    noremap <buffer> z     :call <SID>TopNode()<cr>
+    noremap <buffer> s     :call <SID>UpNode()<cr>
+    noremap <buffer> q     :call <SID>PrevNode()<cr>
+    noremap <buffer> d     :call <SID>NextNode()<cr>
+    " while sure for qsd and z, what are last and dir nodes?
+    noremap <buffer> e     :call <SID>LastNode()<cr>
+    noremap <buffer> a     :call <SID>DirNode()<cr>
+    noremap <buffer> ,h    :call <SID>Help()<cr>
+    noremap <buffer> ,s    :call <SID>Search()<cr>
+    noremap <buffer> <TAB> :call <SID>NextRef()<cr>
 
     runtime info-local.vim
 endfun
@@ -180,23 +170,15 @@ endfun
 fun! s:Help()
     echohl Title
     echo 'Info browser keys'
-    echo '-----------------'
-    echohl None
-    echo '<Space>		Scroll forward (page down).'
-    echo '<Backspace>	Scroll backward (page up).'
-    echo '<Tab>		Move cursor to next hyperlink within this node.'
-    echo '<Enter>,<C-]>	Follow hyperlink under cursor.'
-    echo ';,<C-T>		Return to last seen node.'
-    echo '.,>		Move to the "next" node of this node.'
-    echo 'p,<		Move to the "previous" node of this node.'
-    echo 'u		Move "up" from this node.'
-    echo 'd		Move to "directory" node.'
-    echo 't		Move to the Top node.'
-    echo '<C-S>		Search forward within current node only.'
-    echo 's		Search forward through all nodes for a specified string.'
-    echo 'q		Quit browser.'
+    echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━┓'
     echohl SpecialKey
-    echo 'Note: "," means "or"'
+    echo '         TopNode           │ ⏎ (cr)   FollowLink'
+    echo '         ┌─┬─┬─┐           │ ,h       Help'
+    echo 'DirNode  │a│z│e│ LastNode  │ ,s       Search'
+    echo '         ├─┼─┼─┤           │ → (tab)  NextRef'
+    echo 'PrevNode │q│s│d│ NextNode  │'
+    echo '         └─┴─┴─┘'
+    echo '         UpNode'
     echohl None
 endfun
 
